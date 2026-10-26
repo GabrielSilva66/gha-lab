@@ -1,0 +1,22 @@
+name: CI  
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with: 
+          python-version: "3.12"
+
+      - name: Install Dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Execute test
+        run: pytest -v
