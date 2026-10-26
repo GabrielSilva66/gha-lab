@@ -1,0 +1,18 @@
+name: ola
+
+on:
+  push:
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: echo "Olá, ${{ github.user}}, Evento {{github.event_name}}"
+    - run: |
+        echo "SO do runner -> $RUNNER_OS" 
+        uname -a
+        python --version
+        ls -la
