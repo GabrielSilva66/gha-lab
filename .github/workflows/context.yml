@@ -1,0 +1,12 @@
+name: context
+on: workflow_dispatch
+
+jobs:
+  context:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Contexto do github no json
+        env: 
+          CTX: ${{toJson(github)}}
+        run: echo "SCTX"
